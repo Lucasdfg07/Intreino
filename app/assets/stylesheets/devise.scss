@@ -1,0 +1,30 @@
+body {
+	background: url('running.jpg');
+	background-size: cover;
+
+	.logo {
+		img {
+			width: 60%;
+			border-radius: 20px;
+			opacity: 0.6;
+		}
+	}
+
+	form {
+		margin-top: 40px;
+		.actions {
+			input {
+				color: white;
+			}
+		}
+	}
+
+	.card {
+		margin-top: 100px;
+		opacity: 0.8;
+
+		b {
+			color: red;
+		}
+	}
+}

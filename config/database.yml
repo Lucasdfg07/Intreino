@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: postgres
+  username: postgres
+
+development:
+  <<: *default
+  database: intreino_development
+
+
+test:
+  <<: *default
+  database: intreino_test
+
+
+production:
+  <<: *default
+  database: intreino_production
+  username: intreino
+  password: <%= ENV['INTREINO_DATABASE_PASSWORD'] %>

@@ -1,0 +1,53 @@
+<section class="row center-align">
+  <section class="col s6">
+    <section class="logo">
+      <%= image_tag 'logo' %>
+    </section>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <%= f.email_field :email, autocomplete: "email", id: 'icon_prefix', class: 'validate' %>
+        <label for="icon_prefix">Digite seu Email</label>
+      </div>
+
+      <div class="input-field">
+        <i class="material-icons prefix">security</i>
+        <%= f.password_field :password, autocomplete: "current-password", id: 'security', class: 'validate' %>
+        <label for="security">Digite sua Senha</label>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.sign_in'), class: 'waves-effect waves-light btn red' %>
+      </div>
+
+      <br />
+
+      <%= link_to 'Esqueci minha Senha', new_pupil_password_path, class: 'btn waves-effect waves-light lime darken-3' %>
+    <% end %>
+  </section>
+
+  <section class="col s6">
+    <section class="card">
+      <section class="card-content">
+        <p>
+          Treine em qualquer lugar com acompanhamento profissional dos melhores personais
+          da sua cidade!
+        </p>
+          
+        <br />
+
+        <p>
+          Seja bem acessorado, seja <b>INTREINO</b>.
+        </p>
+
+        <%= link_to 'Me Cadastrar', new_pupil_registration_path, class: 'btn waves-effect waves-light' %>
+
+        <br /><br />
+        <hr />
+
+        <%= link_to 'Sou um personal', new_trainer_registration_path, class: 'btn waves-effect waves-light orange darken-3' %>
+      </section>
+    </section>
+  </section>
+</section>
