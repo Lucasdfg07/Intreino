@@ -1,0 +1,63 @@
+<section class="card">
+  <section class="card-title center-align">
+    <h2>Cadastro de personal</h2>
+  </section>
+
+  <section class="card-content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :Informe_sua_cidade %><br />
+        <%= f.collection_select :city_id, City.order(name: :ASC), :id, :name, {include_blank: 'Selecione sua Cidade'}, class: "browser-default" %>
+      </div>
+
+      <script>
+        $( "#trainer_city_id" ).select2({
+            placeholder: 'Pesquise por uma cidade'
+        });
+      </script>
+
+      <br />
+
+      <div class="field">
+        <%= f.label :nome %><br />
+        <%= f.text_field :name, required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :senha %>
+        <% if @minimum_password_length %>
+        <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :confirmação_de_senha %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :CREF %><br />
+        <%= f.text_field :cref, required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :telefone %><br />
+        <%= f.text_field :telephone %>
+      </div>
+
+      <div class="actions center-align">
+        <%= f.submit 'Salvar', class: 'btn waves-effect waves-light red' %>
+      </div>
+    <% end %>
+  </section>
+</section>
+
+<%= link_to 'Voltar', new_trainer_session_path, class: 'btn waves-effect waves-light' %>

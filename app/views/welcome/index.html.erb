@@ -1,1 +1,5 @@
-olá <%= link_to 'sair', destroy_pupil_session_path, method: :delete %>
+<% if pupil_signed_in? || trainer_signed_in? %>
+	<%= render 'logged' %>
+<% else %>
+	<%= render 'unlogged' %>
+<% end %>

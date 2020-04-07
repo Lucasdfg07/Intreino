@@ -11,9 +11,19 @@
   <body>
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    
+    <% if trainer_signed_in? %>
+        <header>
+          <%= render 'shared/navbar_trainer' %>
+        </header>
 
-    <section class="container">
-      <%= yield %>
-    </section>
+        <section class="container">
+          <%= yield %>
+        </section>
+    <% else %>
+      <section class="container">
+        <%= yield %>
+      </section>
+    <% end %>
   </body>
 </html>

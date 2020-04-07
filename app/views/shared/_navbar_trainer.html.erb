@@ -1,0 +1,11 @@
+<section class="row center-align">
+	<section class="col s2 nav_trainer">
+		<%= image_tag 'logo2' %>
+		<ul>
+			<li><%= link_to 'Página Inicial', root_path %></li>
+			<li><%= link_to 'Editar Perfil', edit_trainer_registration_path %></li>
+			<li><%= link_to 'Meus Alunos', edit_trainer_registration_path %></li>
+			<li><%= link_to 'Sair', destroy_pupil_session_path, method: :delete %></li>
+		</ul>
+	</section>
+</section>
