@@ -1,0 +1,52 @@
+<section class="row">
+	<section class="col s12 center-align trainer_card">
+		<section class="card">
+			<section class="card-title">
+				<h3>Bem Vindo ao <b>INTREINO</b></h3>
+			</section>
+
+			<section class="card-content">
+				<hr>
+					<p>
+						Principais treinadores de <%= current_pupil.city.name %>
+					</p>
+				<hr>
+
+				<% @trainers.each do |trainer| %>
+					<section class="trainer_div">
+						<section class="row center-align">
+							<section class="col s3 perfil">
+								<% if trainer.photo.present? %>
+									<%= image_tag trainer.photo %>
+								<% else %>
+									<%= image_tag 'no-photo' %>
+								<% end %>
+							</section>
+
+							<section class="col s6">
+								<h6><%= trainer.name %></h6>
+								
+								<p>
+									CREF: <%= trainer.cref %>
+								</p>
+
+								<% if trainer.ratings.count > 0 %>
+									<% (1..trainer.ratings).each do |rating| %>
+										<%= image_tag 'star' %>
+									<% end %>
+								<% else %>
+									<hr>
+									Não existem avaliações cadastradas ainda <br /> <%= image_tag 'sad' %>
+								<% end %>
+							</section>
+
+							<section class="col s3">
+								<%= link_to 'Ver', trainer_path(trainer), class: 'btn waves-effect waves-light blue' %>
+							</section>
+						</section>
+					</section>
+				<% end %>
+			</section>
+		</section>
+	</section>
+</section>

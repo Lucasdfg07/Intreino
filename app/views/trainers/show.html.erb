@@ -1,0 +1,87 @@
+<section class="card">
+	<section class="row">
+		<section class="col s4 center-align">
+			<section class="perfil">
+				<%= image_tag 'no-photo' %>
+			</section>
+
+			<br>
+
+			<section class="row">
+				<%= link_to @trainer.facebook, class: 'col s6' do %>
+					<%= image_tag 'facebook', class: 'thumb' if @trainer.facebook.present? %>
+				<% end %>
+
+				<%= link_to @trainer.instagram, class: 'col s6' do %>
+					<%= image_tag 'instagram-sketched', class: 'thumb' if @trainer.instagram.present? %>
+				<% end %>
+			</section>
+		</section>
+
+		<section class="col s8">
+			<section class="data">
+				<%= form_for(@trainer) do |f| %>
+					<section class="input-field">
+						<i class="material-icons prefix">account_circle</i>
+						<%= f.text_field :name, disabled: true, id: 'icon_prefix' %>
+					</section>
+
+					<section class="input-field">
+						<i class="material-icons prefix">email</i>
+						<%= f.text_field :email, disabled: true, id: 'email' %>
+					</section>
+				<% end %>
+			</section>
+
+			<section class="center-align">
+				<% if @trainer.ratings.count > 0 %>
+					<% (1..@trainer.ratings.count).each do |rating| %>
+						<%= image_tag 'star' %>
+					<% end %>
+				<% else %>
+					Não existem avaliações cadastradas ainda <br /> <%= image_tag 'sad' %>
+				<% end %>
+
+				<p>
+					Número de avaliações: <%= @trainer.ratings.count %>
+				</p>
+			</section>
+
+			<section class="comments center-align">
+				<section class="center-align">
+					<% @trainer.ratings.each do |rating| %>
+						<%= rating.value %>
+						<%= rating.comment %>
+					<% end %>
+				</section>
+
+				<%= link_to 'Fazer Comentário', :back, class: 'btn waves-effect waves-light' %>
+			</section>
+		</section>
+	</section>
+
+	<br /><br />
+
+	<section class="row center-align">
+		<section class="col s8">
+			<section class="row">
+				<section class="col s8">
+					<p>
+						Saiba mais sobre os meus valores, agendas e pacotes
+						de treino clicando no ícone ao lado!
+					</p>
+				</section>
+
+				<section class="col s4 whatsapp">
+					<%= link_to "https://api.whatsapp.com/send?phone=55#{@trainer.telephone}" do %>
+						<%= image_tag 'whatsapp', class: 'thumb' %>
+					<% end %>
+				</section>
+			</section>	
+		</section>
+
+		<section class="col s4">
+			<%= link_to 'Voltar', root_path, class: 'btn waves-effect waves-light green' %>
+		</section>
+	</section>
+</section>

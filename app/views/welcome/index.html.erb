@@ -1,5 +1,7 @@
-<% if pupil_signed_in? || trainer_signed_in? %>
-	<%= render 'logged' %>
+<% if trainer_signed_in? %>
+	<%= render 'logged_trainer' %>
+<% elsif pupil_signed_in? %>
+	<%= render 'logged_pupil' %>
 <% else %>
 	<%= render 'unlogged' %>
 <% end %>
