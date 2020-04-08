@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   resources :trains
 
   resources :trainers
+
+  resources :pupils
+
+  resources :ratings
+
+  resource :solicitations
+
+  resource :pupil_trainers
   
   root 'welcome#index'
 end

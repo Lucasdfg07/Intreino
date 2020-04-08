@@ -1,0 +1,2 @@
+module SolicitationsHelper
+end

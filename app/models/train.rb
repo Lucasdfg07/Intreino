@@ -5,4 +5,12 @@ class Train < ApplicationRecord
 	has_many :exercises
 
 	validates_presence_of :type
+
+	def get_photo
+		if self.type == "funcional"
+			"exercise"
+		else
+			"barbell"
+		end
+	end
 end

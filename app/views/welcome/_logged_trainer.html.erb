@@ -19,7 +19,27 @@
 				<hr>
 
 				<% current_trainer.solicitations.each do |solicitation| %>
-					<%= solicitation.pupil.name %> solicitou treinamento online!
+					<section class="row center-align trainer_div">
+						<section class="col s2">
+							<%= image_tag solicitation.pupil.profile_image, class: 'thumb circle' %>
+						</section>
+
+						<section class="col s10">
+							<%= solicitation.pupil.name %> solicitou treinamento online!
+
+							<br />
+
+							<section class="row">
+								<section class="col s6">
+									<%= link_to 'Confirmar', new_pupil_trainers_path(pupil: solicitation.pupil, solicitation: solicitation), class: 'btn waves-effect waves-light green' %>
+								</section>
+
+								<section class="col s6">
+									<%= link_to 'Remover', solicitation, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn waves-effect waves-light red col s6' %>
+								</section>
+							</section>
+						</section>
+					</section>	
 				<% end %>
 			</section>
 		</section>

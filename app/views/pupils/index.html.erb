@@ -2,7 +2,14 @@
 	<section class="col s12 center-align trainer_card">
 		<section class="card">
 			<section class="card-title">
-				<h3>Bem Vindo ao <b>INTREINO</b></h3>
+				<h3>Meus Alunos</h3>
+				<hr />
+			</section>
+
+			<section class="card-content">
+				<% current_trainer.pupils.each do |pupil| %>
+					<%= pupil.name %> <br />
+				<% end %>
 			</section>
 		</section>
 	</section>

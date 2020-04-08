@@ -21,17 +21,17 @@
       <br />
 
       <div class="field">
-        <%= f.label :nome %><br />
+        <%= f.label :nome %>*<br />
         <%= f.text_field :name, required: true %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %>*<br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
       </div>
 
       <div class="field">
-        <%= f.label :senha %>
+        <%= f.label :senha %>*
         <% if @minimum_password_length %>
         <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
         <% end %><br />
@@ -39,18 +39,28 @@
       </div>
 
       <div class="field">
-        <%= f.label :confirmação_de_senha %><br />
+        <%= f.label :confirmação_de_senha %>*<br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
       </div>
 
       <div class="field">
-        <%= f.label :CREF %><br />
+        <%= f.label :CREF %>*<br />
         <%= f.text_field :cref, required: true %>
       </div>
 
       <div class="field">
         <%= f.label :telefone %><br />
         <%= f.text_field :telephone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :link_do_facebook %><br />
+        <%= f.text_field :facebook %>
+      </div>
+
+      <div class="field">
+        <%= f.label :link_do_instagram %><br />
+        <%= f.text_field :instagram %>
       </div>
 
       <div class="actions center-align">
