@@ -1,0 +1,17 @@
+<section class="card">
+	<section class="card-title center-align">
+		<h3>Novo Treino</h3>
+	</section>
+
+	<section class="card-content">
+		Aluno: <b><%= @pupil.name %></b>
+
+		<hr />
+		
+		<section class="row">
+			<section class="col s8 push-s2">
+				<%= render 'form', train: @train %>
+			</section>
+		</section>
+	</section>
+</section>

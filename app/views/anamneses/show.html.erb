@@ -1,0 +1,55 @@
+<section class="card row">
+	<section class="col s10 push-s1">
+		<section class="card-title center-align">
+			<h4>Anamnese</h4>
+		</section>
+
+		<section class="field">
+			Seu médico já lhe recomendou a não realizar exercícios físicos?<br />
+			R: <%= @anamnesis.recomendation %>
+		</section>
+
+		<hr />
+
+		<section class="field">
+			Você já realizou alguma cirurgia? Se sim, qual?<br />
+			R: <%= @anamnesis.surgery %>
+		</section>
+
+		<hr />
+
+		<section class="field">
+			Sente alguma dor, aperto ou ardência no tórax ao realizar exercícios físicos?<br />
+			R: <%= @anamnesis.squeeze_or_burning %>
+		</section>
+
+		<hr />
+
+		<section class="field">
+			Sofre de algum problema articular, ósseo ou de ligamentos? Se sim, qual?<br />
+			R:<%= @anamnesis.bone_problem %>
+		</section>
+
+		<hr />
+
+		<section class="field">
+			Toma algum tipo de medicamento? Se sim, qual?<br />
+			R: <%= @anamnesis.medicine %>
+		</section>
+
+		<hr />
+
+		<section class="field">
+			Você tem alguma contra indicação para fazer qualquer tipo de exercício?<br />
+			R: <%= @anamnesis.contraindication %>
+		</section>
+
+		<hr />
+
+		<section class="center-align">
+			<%= link_to 'Voltar', :back, class: 'btn waves-effect waves-light' %>
+		</section>
+
+		<br />
+	</section>
+</section>

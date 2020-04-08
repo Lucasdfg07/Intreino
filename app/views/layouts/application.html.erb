@@ -6,11 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    
+    <% if trainer_signed_in? %>
+        <header>
+          <%= render 'shared/navbar_trainer' %>
+        </header>
+    <% elsif pupil_signed_in? %>
+        <header>
+          <%= render 'shared/navbar_pupil' %>
+        </header>
+    <% end %>
 
     <section class="container">
       <%= yield %>

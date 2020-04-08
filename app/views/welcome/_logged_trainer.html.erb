@@ -1,0 +1,47 @@
+<section class="row">
+	<section class="col s12 center-align trainer_card">
+		<section class="card">
+			<section class="card-title">
+				<h3>Bem Vindo ao <b>INTREINO</b></h3>
+			</section>
+
+			<section class="card-content">
+				<hr>
+
+				Cidade: <%= current_trainer.city.name %>
+				
+				<hr>
+
+				<!-- Gráfico -->
+
+				<h4>Solicitações Pendentes <%= image_tag 'invite', class: 'invite' %></h4>
+				
+				<hr>
+
+				<% current_trainer.solicitations.each do |solicitation| %>
+					<section class="row center-align trainer_div">
+						<section class="col s2">
+							<%= image_tag solicitation.pupil.profile_image, class: 'thumb circle' %>
+						</section>
+
+						<section class="col s10">
+							<%= solicitation.pupil.name %> solicitou treinamento online!
+
+							<br />
+
+							<section class="row">
+								<section class="col s6">
+									<%= link_to 'Confirmar', new_pupil_trainers_path(pupil: solicitation.pupil, solicitation: solicitation), class: 'btn waves-effect waves-light green' %>
+								</section>
+
+								<section class="col s6">
+									<%= link_to 'Remover', solicitations_path(id: solicitation), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn waves-effect waves-light red col s6' %>
+								</section>
+							</section>
+						</section>
+					</section>	
+				<% end %>
+			</section>
+		</section>
+	</section>
+</section>

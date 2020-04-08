@@ -2,7 +2,20 @@ class Train < ApplicationRecord
 	belongs_to :trainer
 	belongs_to :pupil
 
-	has_many :exercises
+	has_many :exercises, dependent: :destroy
 
-	validates_presence_of :type
+	validates_presence_of :day_of_week, :modality, :grouping
+	
+	enum modality: [:Musculação, :Funcional]
+
+	enum day_of_week: [:Segunda, :Terça, :Quarta, :Quinta, :Sexta, :Sábado, :Domingo]
+
+
+	def get_photo
+		if self.modality == "funcional"
+			"exercise"
+		else
+			"barbell"
+		end
+	end
 end

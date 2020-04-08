@@ -1,4 +1,26 @@
 @import "materialize";
 @import "material_icons";
 
+@import "select2";
+
 @import "devise";
+@import "welcome";
+@import "trainers";
+
+@import "shared/navbar";
+
+.thumb {
+	width: 50px;
+}
+
+.medium {
+	width: 100px;
+}
+
+.big {
+	width: 150px;
+}
+
+.m-top {
+	margin-top: 20px;
+}

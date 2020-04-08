@@ -1,0 +1,111 @@
+<section class="card">
+	<section class="row">
+		<section class="col s4 center-align">
+			<section class="perfil">
+				<%= image_tag @trainer.profile_image %>
+			</section>
+
+			<br>
+
+			<section class="row">
+				<%= link_to @trainer.facebook, class: 'col s6' do %>
+					<%= image_tag 'facebook', class: 'thumb' if @trainer.facebook.present? %>
+				<% end %>
+
+				<%= link_to @trainer.instagram, class: 'col s6' do %>
+					<%= image_tag 'instagram-sketched', class: 'thumb' if @trainer.instagram.present? %>
+				<% end %>
+			</section>
+
+			<br />
+
+			<% if current_pupil.solicitations.find_by(trainer: @trainer).present? %>
+				<%= link_to 'Solicitar Treinamento', new_solicitations_path(trainer: @trainer), class: 'btn waves-light waves-effect red', disabled: true %>
+				<p style="color:green">
+					Solicitação em avaliação!
+				</p>
+			<% else %>
+				<%= link_to 'Solicitar Treinamento', new_solicitations_path(trainer: @trainer), class: 'btn waves-light waves-effect red' %>
+			<% end %>
+		</section>
+
+		<section class="col s8">
+			<section class="data">
+				<%= form_for(@trainer) do |f| %>
+					<section class="input-field">
+						<i class="material-icons prefix">account_circle</i>
+						<%= f.text_field :name, disabled: true, id: 'icon_prefix' %>
+					</section>
+
+					<section class="input-field">
+						<i class="material-icons prefix">email</i>
+						<%= f.text_field :email, disabled: true, id: 'email' %>
+					</section>
+				<% end %>
+			</section>
+
+			<section class="center-align">
+				<% if @trainer.ratings.count > 0 %>
+					<% (1..@trainer.get_rating_value).each do |rating| %>
+						<%= image_tag 'star' %>
+					<% end %>
+				<% else %>
+					Não existem avaliações cadastradas ainda <br /> <%= image_tag 'sad' %>
+				<% end %>
+
+				<p>
+					Número de avaliações: <%= @trainer.ratings.count %>
+				</p>
+			</section>
+
+			<section class="center-align col s9 push-s1">
+				<section class="comments">
+					<% @trainer.ratings.where.not(comment: "").each do |rating| %>
+						<section class="center-align row">
+							<section class="col s2">
+								<%= image_tag rating.pupil.profile_image, class: "thumb circle" %>
+							</section>
+
+							<section class="col s10">
+								<%= rating.pupil.name %> <br />
+								<%= rating.comment %> <br />
+								<% (1..rating.value).each do |rating| %>
+									<%= image_tag 'star', class: 'star_profile' %>
+								<% end %>
+							</section>
+						</section>
+					<% end %>
+				</section>
+
+				<br />
+
+				<%= link_to 'Avaliar Profissional', new_rating_path(trainer: @trainer), class: 'btn waves-effect waves-light' %>
+			</section>
+		</section>
+	</section>
+
+	<br /><br />
+
+	<section class="row center-align">
+		<section class="col s8">
+			<section class="row">
+				<section class="col s8">
+					<p>
+						Saiba mais sobre os meus valores, agendas e pacotes
+						de treino clicando no ícone ao lado!
+					</p>
+				</section>
+
+				<section class="col s4 whatsapp">
+					<%= link_to "https://api.whatsapp.com/send?phone=55#{@trainer.telephone}" do %>
+						<%= image_tag 'whatsapp', class: 'thumb' %>
+					<% end %>
+				</section>
+			</section>	
+		</section>
+
+		<section class="col s4">
+			<%= link_to 'Voltar', trainers_path, class: 'btn waves-effect waves-light green' %>
+		</section>
+	</section>
+</section>

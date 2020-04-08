@@ -1,0 +1,58 @@
+<section class="card">
+  <section class="card-title center-align">
+    <h2>Editar Perfil</h2>
+  </section>
+
+  <section class="card-content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :Informe_sua_cidade %><br />
+        <%= f.collection_select :city_id, City.order(name: :ASC), :id, :name, {include_blank: 'Selecione sua Cidade'}, class: "browser-default", required: true %>
+      </div>
+
+      <script>
+        $( "#pupil_city_id" ).select2({
+            placeholder: 'Pesquise por uma cidade'
+        });
+      </script>
+
+      <br />
+
+      <div class="field">
+        <%= f.label :nome %><br />
+        <%= f.text_field :name, required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :telefone %><br />
+        <%= f.number_field :telephone, required: true %>
+      </div>
+
+      <div class="actions center-align">
+        <%= f.submit "Salvar", class: 'waves-light waves-effect red btn' %>
+      </div>
+    <% end %>
+  </section>
+</section>
+
+<%= link_to 'Voltar', root_path, class: 'btn waves-effect waves-light' %>

@@ -1,0 +1,25 @@
+<%= form_for(rating) do |f| %>
+
+	<%= hidden_field_tag :trainer_id, @trainer.id %>
+
+	<section class="field">
+		<%= f.label 'Avaliação *' %>
+		<%= f.number_field :value, min: 1, max: 5, required: true %>
+		<small>1 - Muito Ruim  |  2 - Ruim  |  3 - Bom  |  4 - Muito Bom  |  5 - Excelente</small>
+	</section>
+
+	<br />
+
+	<section class="field">
+		<%= f.label 'Comentário' %>
+		<%= f.text_area :comment %>
+	</section>
+
+	<section class="actions center-align">
+		<%= f.submit 'Salvar', class: 'btn waves-effect waves-light red' %>
+
+		<br /> <br />
+
+		<%= link_to 'Voltar', trainer_path(@trainer), class: 'btn waves-light waves-effect' %>
+	</section>
+<% end %>

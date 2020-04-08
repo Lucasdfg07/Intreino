@@ -1,0 +1,40 @@
+<section class="card">
+  <section class="card-title center-align">
+    <h4>Login</h4>
+    <hr>
+
+    <p>
+      Treine seus alunos, obtenha resultados e consiga mais clientes!
+    </p>
+
+    <hr>
+  </section>
+
+  <section class="card-content">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :senha %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions center-align">
+        <%= f.submit "Log in", class: 'btn waves-effect waves-light red' %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Me Cadastrar', new_trainer_registration_path, class: 'btn waves-effect waves-light green' %>
+
+    <br /><br />
+
+    <%= link_to 'Esqueci minha Senha', new_trainer_password_path, class: 'btn waves-effect waves-light lime darken-3' %>
+  </section>
+</section>
+
+<br />
+
+<%= link_to 'Voltar', root_path, class: 'btn waves-effect waves-light' %>
