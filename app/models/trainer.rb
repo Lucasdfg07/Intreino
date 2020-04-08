@@ -1,9 +1,9 @@
 class Trainer < ApplicationRecord
   has_many :pupil_trainers
   has_many :pupils, through: :pupil_trainers
-  has_many :trains
-  has_many :ratings
-  has_many :solicitations
+  has_many :trains, dependent: :destroy
+  has_many :ratings, dependent: :destroy
+  has_many :solicitations, dependent: :destroy
 
   belongs_to :city
 

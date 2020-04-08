@@ -19,6 +19,9 @@ class SolicitationsController < ApplicationController
 		end
 	end
 
+	def show
+	end
+
 	def destroy
 		if @solicitation.destroy
 			redirect_to request.referrer, notice: 'Solicitação removida com sucesso!'

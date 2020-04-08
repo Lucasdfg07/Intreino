@@ -1,0 +1,39 @@
+<section class="card">
+	<section class="row">
+		<section class="col s4 center-align">
+			<%= image_tag @pupil.profile_image, class: 'big circle' %>
+
+			<br />
+
+			<%= link_to "https://api.whatsapp.com/send?phone=55#{@pupil.telephone}" do %>
+				<%= image_tag 'whatsapp', class: 'thumb' %>
+			<% end %>
+		</section>
+
+		<section class="col s8">
+			<%= form_for(@pupil) do |f| %>
+				<section class="input-field">
+					<i class="material-icons prefix">account_circle</i>
+					<%= f.text_field :name, disabled: true, id: 'icon_prefix' %>
+				</section>
+
+				<section class="input-field">
+					<i class="material-icons prefix">email</i>
+					<%= f.text_field :email, disabled: true, id: 'email' %>
+				</section>
+			<% end %>
+
+			<%= link_to 'Ver Anamnese', anamneses_path(id: @pupil.anamnesis), class: 'btn waves-effect waves-light blue' %>
+
+			<%= link_to 'Histórico de treinos', :back, class: 'btn waves-effect waves-light black' %>
+
+			<br /><br />
+
+			<section class="actions right">
+				<%= link_to 'Voltar', pupils_path, class: 'btn waves-light waves-effect' %>
+			</section>
+
+			<br /><br />
+		</section>
+	</section>
+</section>

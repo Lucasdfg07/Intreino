@@ -1,7 +1,8 @@
 class Pupil < ApplicationRecord
   has_many :trainers
-  has_many :trains
-  has_many :solicitations
+  has_many :trains, dependent: :destroy
+  has_many :solicitations, dependent: :destroy
+  has_one :anamnesis, dependent: :destroy
 
   belongs_to :city
 

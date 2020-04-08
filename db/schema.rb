@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20200407162510) do
     t.datetime "updated_at",                          null: false
     t.integer  "city_id"
     t.string   "name"
+    t.integer  "age"
     t.string   "photo"
     t.string   "telephone"
     t.integer  "anamnesis_id"

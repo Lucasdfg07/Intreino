@@ -2,7 +2,7 @@ class Train < ApplicationRecord
 	belongs_to :trainer
 	belongs_to :pupil
 
-	has_many :exercises
+	has_many :exercises, dependent: :destroy
 
 	validates_presence_of :type
 

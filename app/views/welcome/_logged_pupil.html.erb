@@ -4,6 +4,16 @@
 			<section class="card-title">
 				<h3>Bem Vindo ao <b>INTREINO</b></h3>
 			</section>
+
+			<hr />
+
+			<% if not current_pupil.anamnesis.present? %>
+				<p>
+					Para começar, cadastre uma anamnese!
+				</p>
+
+				<%= link_to 'Cadastrar Anamnese', new_anamneses_path, class: 'btn waves-effect waves-light' %>
+			<% end %>
 		</section>
 	</section>
 </section>

@@ -1,6 +1,7 @@
 class PupilTrainersController < ApplicationController
-	before_action :set_pupil
-	before_action :set_solicitation
+	before_action :set_pupil, only: [:new]
+	before_action :set_solicitation, only: [:new]
+	before_action :set_pupil_trainer_relation, only: [:destroy]
 
 	def new
 		create
@@ -21,6 +22,14 @@ class PupilTrainersController < ApplicationController
 		end
 	end
 
+	def destroy
+		if @pupil.destroy
+			redirect_to pupils_path, notice: 'Aluno removido com sucesso!'
+		else
+			redirect_to pupils_path, alert: 'Erro ao remover aluno! Tente novamente mais tarde.'
+		end
+	end
+
 	private
 
 	def set_pupil
@@ -29,5 +38,9 @@ class PupilTrainersController < ApplicationController
 
 	def set_solicitation
 		@solicitation = Solicitation.find(params[:solicitation])
+	end
+
+	def set_pupil_trainer_relation
+		@pupil_trainer = PupilTrainer.find_by(pupil: params[:pupil])
 	end
 end

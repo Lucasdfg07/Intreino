@@ -1,0 +1,54 @@
+<%= form_for(anamneses) do |f| %>
+	<section class="field">
+		Seu médico já lhe recomendou a não realizar exercícios físicos?<br />
+		R: 
+		<section class="input-field inline">
+			<%= f.text_field :recomendation, required: true %>
+		</section>
+	</section>
+
+	<section class="field">
+		Você já realizou alguma cirurgia? Se sim, qual?<br />
+		R: 
+		<section class="input-field inline">
+			<%= f.text_field :surgery, required: true %>
+		</section>
+	</section>
+
+	<section class="field">
+		Sente alguma dor, aperto ou ardência no tórax ao realizar exercícios físicos?<br />
+		R: 
+		<section class="input-field inline">
+			<%= f.text_field :squeeze_or_burning, required: true %>
+		</section>
+
+	</section>
+
+	<section class="field">
+		Sofre de algum problema articular, ósseo ou de ligamentos? Se sim, qual?<br />
+		R:
+		<section class="input-field inline">
+			<%= f.text_field :bone_problem, required: true %>
+		</section>
+	</section>
+
+	<section class="field">
+		Toma algum tipo de medicamento? Se sim, qual?<br />
+		R: 
+		<section class="input-field inline">
+			<%= f.text_field :medicine, required: true %>
+		</section>
+	</section>
+
+	<section class="field">
+		Você tem alguma contra indicação para fazer qualquer tipo de exercício?<br />
+		R: 
+		<section class="input-field inline">
+			<%= f.text_field :contraindication, required: true %>
+		</section>
+	</section>
+
+	<section class="actions center-align">
+		<%= f.submit 'Aceitar', class: 'btn waves-effect waves-light green' %>
+	</section>
+<% end %>

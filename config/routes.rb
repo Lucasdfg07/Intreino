@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resource :solicitations
 
   resource :pupil_trainers
+
+  resource :anamneses
   
   root 'welcome#index'
 end
