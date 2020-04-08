@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20200407162510) do
   create_table "exercises", force: :cascade do |t|
     t.integer  "train_id"
     t.string   "name",       null: false
-    t.string   "reps",       null: false
-    t.string   "series",     null: false
+    t.integer  "reps",       null: false
+    t.integer  "series",     null: false
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -118,10 +118,12 @@ ActiveRecord::Schema.define(version: 20200407162510) do
   create_table "trains", force: :cascade do |t|
     t.integer  "trainer_id"
     t.integer  "pupil_id"
-    t.date     "validate"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "day_of_week"
+    t.string   "grouping"
+    t.date     "validate_date"
+    t.string   "modality"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["pupil_id"], name: "index_trains_on_pupil_id", using: :btree
     t.index ["trainer_id"], name: "index_trains_on_trainer_id", using: :btree
   end

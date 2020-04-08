@@ -1,0 +1,66 @@
+<%= form_for(train) do |f| %>
+	
+	<%= hidden_field_tag :pupil, @pupil.id %>
+
+	<section class="field">
+		Tipo de treinamento:
+		<%= f.select :modality, Train.modalities.map {|key, value| [key.humanize, key]}, {}, class: "browser-default" %>
+	</section>
+
+	<br />
+
+	<section class="row">
+		<section class="field col l6">
+			Dia da Semana:
+			<section class="input-field inline">
+				<%= f.select :day_of_week, Train.day_of_weeks.map {|key, value| [key.humanize, key]}, {}, class: "browser-default" %>
+			</section>
+		</section>
+
+		<section class="field col l6">
+			Agrupamentos musculares:
+			<%= f.text_field :grouping, placeholder: 'Agrupamentos a serem treinados', required: true %>
+		</section>
+	</section>
+
+	<br />
+
+	<script>
+		 $(document).ready(function(){
+		    $('.datepicker').datepicker({
+				i18n: {
+					months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+					monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+					weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'],
+					weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+					weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+					today: 'Hoje',
+					clear: 'Limpar',
+					cancel: 'Sair',
+					done: 'Confirmar',
+					labelMonthNext: 'Próximo mês',
+					labelMonthPrev: 'Mês anterior',
+					labelMonthSelect: 'Selecione um mês',
+					labelYearSelect: 'Selecione um ano',
+					selectMonths: true,
+					selectYears: 15,
+				},
+					container: 'body',
+					minDate: new Date(),
+			});
+		});
+	</script>
+
+	<section class="field">
+		Válido até: <br />
+
+		<i class="material-icons">date_range</i>
+		<section class="input-field inline">
+			<%= f.text_field :validate_date, class: 'datepicker', readonly: true, required: true %>
+		</section>
+	</section>
+
+	 <section class="actions center-align">
+	 	<%= f.submit 'Salvar', class: 'btn waves-effect waves-light' %>
+	 </section>
+<% end %>

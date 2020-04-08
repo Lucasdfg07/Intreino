@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resource :pupil_trainers
 
   resource :anamneses
+
+  resource :exercises
   
   root 'welcome#index'
 end

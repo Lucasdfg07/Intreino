@@ -3,8 +3,10 @@ class CreateTrains < ActiveRecord::Migration[5.0]
     create_table :trains do |t|
       t.belongs_to :trainer
       t.belongs_to :pupil
-      t.date :validate
-      t.string :type
+      t.string :day_of_week
+      t.string :grouping
+      t.date :validate_date
+      t.string :modality
 
       t.timestamps
     end

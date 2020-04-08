@@ -20,7 +20,7 @@
 								Última atualização: <%= pupil.updated_at %>
 							</p>
 
-							<%= link_to 'Prescrever novo treino', :back, class: 'btn waves-effect waves-light' %>
+							<%= link_to 'Prescrever novo treino', new_train_path(pupil: pupil), class: 'btn waves-effect waves-light' %>
 							
 							<%= link_to 'Perfil', pupil_path(pupil), class: 'btn waves-effect waves-light black' %>
 						</section>

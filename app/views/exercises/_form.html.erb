@@ -1,0 +1,27 @@
+<%= form_for(exercise) do |f| %>
+	<section class="row">
+		<section class="col l6">
+			Nome do exercício:
+			<%= f.text_field :name, placeholder: 'Digite o nome do exercício', required: true %>
+		</section>
+
+		<section class="col l3">
+			Nº de Repetições:
+			<%= f.number_field :reps, placeholder: 'Digite o número de repetições', min: 0, required: true %>
+		</section>
+
+		<section class="col l3">
+			Nº de Séries:
+			<%= f.number_field :series, placeholder: 'Digite o número de séries', min: 0, required: true %>
+		</section>
+
+		<section class="col l12">
+			Vídeo Explicativo:
+			<%= f.text_field :video, placeholder: 'Link de um vídeo explicativo para o aluno' %>
+		</section>
+
+		<section class="btn-floating btn-large pulse right">
+			<i class="material-icons">add</i>
+		</section>
+	</section>
+<% end %>

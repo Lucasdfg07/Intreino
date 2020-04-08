@@ -3,8 +3,8 @@ class CreateExercises < ActiveRecord::Migration[5.0]
     create_table :exercises do |t|
       t.belongs_to :train
       t.string :name, null: false
-      t.string :reps, null: false
-      t.string :series, null: false
+      t.integer :reps, null: false
+      t.integer :series, null: false
       t.string :video
       t.timestamps
     end
