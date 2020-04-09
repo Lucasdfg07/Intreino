@@ -19,13 +19,13 @@
 
 			<br />
 
-			<% if current_pupil.solicitations.find_by(trainer: @trainer).present? %>
-				<%= link_to 'Solicitar Treinamento', new_solicitations_path(trainer: @trainer), class: 'btn waves-light waves-effect red', disabled: true %>
+			<% if current_pupil.solicitations.find_by(trainer: @trainer).present? || (@trainer).in?(current_pupil.trainers) %>
+				<%= link_to 'Solicitar Treinamento', new_solicitation_path(trainer: @trainer), class: 'btn waves-light waves-effect red', disabled: true %>
 				<p style="color:green">
 					Solicitação em avaliação!
 				</p>
 			<% else %>
-				<%= link_to 'Solicitar Treinamento', new_solicitations_path(trainer: @trainer), class: 'btn waves-light waves-effect red' %>
+				<%= link_to 'Solicitar Treinamento', new_solicitation_path(trainer: @trainer), class: 'btn waves-light waves-effect red' %>
 			<% end %>
 		</section>
 

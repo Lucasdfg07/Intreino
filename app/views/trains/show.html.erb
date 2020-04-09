@@ -4,13 +4,33 @@
 	</section>
 
 	<section class="card-content">
-		<h5>Dia do treino: <b><%= @train.day_of_week %></b></h5>
+		<section class="row">
+			<section class="col l8 right center-align">
+				<section class="col l5">
+					<%= image_tag @train.trainer.profile_image, class: 'big circle' %>
+				</section>
 
-		<h5>Agrupamentos: <b><%= @train.grouping %></b></h5>
+				<section class="col l7 m-top">
+					Treinador: <%= @train.trainer.name %>
 
-		<p>
-			Válido até: <%= @train.validate_date %>
-		</p>
+					<br /><br />
+					
+					<% (1..@train.trainer.get_rating_value).each do %>
+						<%= image_tag 'star' %>
+					<% end %>
+				</section>
+			</section>
+
+			<section class="col l4">
+				<h5>Dia do treino: <b><%= @train.day_of_week %></b></h5>
+
+				<h5>Agrupamentos: <b><%= @train.grouping %></b></h5>
+
+				<p>
+					Válido até: <%= @train.validate_date %>
+				</p>
+			</section>	
+		</section>
 
 		<table class="responsive-table">
 			<thead>
