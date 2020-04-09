@@ -2,24 +2,48 @@
 	<section class="col s4">
 		<h6>Meus Treinos</h6>
 		<hr />
+
+		<% if trainer_signed_in? %>
+			<p>
+				Aluno: <b><%= @pupil.name %></b>
+			</p>
+
+			<hr />
+		<% end %>
 	</section>
 
 	<section class="col s12">
-		<% current_pupil.trains.order(created_at: :ASC).each do |train| %>
-			<section class="col s3">
-				<%= image_tag train.get_photo, class: 'thumb' %>
-			</section>
+		<% @pupil.trains.order(created_at: :DESC).each do |train| %>
+			<section class="row m-top shadow">
+				<section class="col s3">
+					<%= image_tag train.get_photo, class: 'thumb' %>
+				</section>
 
-			<section class="col s7">
-				Modalidade: <b><%= train.modality %></b> <br />
-				Treinador: <%= train.trainer.name %><br />
-				<small>Data de lançamento: <%= train.created_at %></small>
-				<small>Validade até <b><%= train.validate_date %></b></small>
-			</section>
+				<section class="col s6">
+					Agrupamentos: <b><%= train.grouping %> / <%= train.day_of_week %></b> <br />
+					Treinador: <%= train.trainer.name %><br />
+					<small>Data de lançamento: <%= train.created_at %></small>
+					<small>Validade até <b><%= train.validate_date %></b></small>
+				</section>
 
-			<section class="col s2">
-				<%= link_to 'Ver Mais', train_path(train), class: 'btn waves-effect waves-light red' %>
+				<section class="col s2">
+					<%= link_to 'Ver Mais', train_path(train, pupil: @pupil), class: 'btn waves-effect waves-light red' %>
+				</section>
+
+				<section class="col s1">
+					<% if trainer_signed_in? %>
+						<%= link_to train, method: :delete, data: { confirm: 'Tem certeza?' } do %>
+							<i class="material-icons">delete</i>
+						<% end %>
+					<% end %>
+				</section>
 			</section>
 		<% end %>
+
+
+		<%= link_to 'Voltar', pupil_path(@pupil), class: 'btn waves-effect waves-light' if trainer_signed_in? %>
+
+		<br /><br />
+		
 	</section>
 </section>

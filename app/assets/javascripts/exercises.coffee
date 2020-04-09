@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  $('.exercise input').keyup (e) ->
+    $('.exercise_form').submit()
+
+  $('.exercise_form').on 'submit', (e) ->
+	$.ajax e.target.action,
+	    type: 'PUT'
+	    dataType: 'json',
+	    data: $(".exercise_form").serialize()
+	return false

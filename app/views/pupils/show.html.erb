@@ -23,9 +23,9 @@
 				</section>
 			<% end %>
 
-			<%= link_to 'Ver Anamnese', anamneses_path(id: @pupil.anamnesis), class: 'btn waves-effect waves-light blue' %>
+			<%= link_to 'Ver Anamnese', anamnese_path(id: @pupil.anamnesis), class: 'btn waves-effect waves-light blue' %>
 
-			<%= link_to 'Histórico de treinos', :back, class: 'btn waves-effect waves-light black' %>
+			<%= link_to 'Histórico de treinos', trains_path(pupil: @pupil), class: 'btn waves-effect waves-light black' %>
 
 			<br /><br />
 

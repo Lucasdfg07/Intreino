@@ -1,27 +1,49 @@
-<%= form_for(exercise) do |f| %>
-	<section class="row">
-		<section class="col l6">
-			Nome do exercício:
-			<%= f.text_field :name, placeholder: 'Digite o nome do exercício', required: true %>
+<%= form_for(exercise, html: {class: 'exercise_form'}) do |f| %>
+	<% @exercise.name.each do |exercise| %>
+		<section class="row exercise">
+			<section class="col l5">
+				Nome do exercício:
+				<%= f.text_field :name, value: @exercise.name[@count], placeholder: 'Digite o nome do exercício', required: true, multiple: true %>
+			</section>
+
+			<section class="col l4">
+				Nº de Repetições:
+				<%= f.number_field :reps, value: @exercise.reps[@count], placeholder: 'Digite o número de repetições', min: 0, required: true, multiple: true %>
+			</section>
+
+			<section class="col l3">
+				Nº de Séries:
+				<%= f.number_field :series, value: @exercise.series[@count], placeholder: 'Digite o número de séries', min: 0, required: true, multiple: true %>
+			</section>
+
+			<section class="col s12">
+				Vídeo Explicativo:
+				<%= f.text_field :video, value: @exercise.video[@count], multiple: true, placeholder: 'Link de um vídeo explicativo para o aluno' %>
+			</section>
 		</section>
 
-		<section class="col l3">
-			Nº de Repetições:
-			<%= f.number_field :reps, placeholder: 'Digite o número de repetições', min: 0, required: true %>
+		<section class="center-align d-none">
+			<%= f.submit 'Salvar', class: 'btn waves-effect waves-light' %>
 		</section>
 
-		<section class="col l3">
-			Nº de Séries:
-			<%= f.number_field :series, placeholder: 'Digite o número de séries', min: 0, required: true %>
-		</section>
+		<%= content_tag :div, '', class: 'hidden', data: { source: @count += 1 } %>
+	<% end %>
 
-		<section class="col l12">
-			Vídeo Explicativo:
-			<%= f.text_field :video, placeholder: 'Link de um vídeo explicativo para o aluno' %>
-		</section>
+	<section class="btn-floating btn-large pulse red">
+		<%= link_to remove_exercises_path(id: @exercise) do %>
+			<i class="material-icons">remove</i>
+		<% end  %>
+	</section>
 
-		<section class="btn-floating btn-large pulse right">
+	<section class="btn-floating btn-large pulse right">
+		<%= link_to add_exercises_path(id: @exercise) do %>
 			<i class="material-icons">add</i>
-		</section>
+		<% end  %>
+	</section>
+
+	<br />
+	
+	<section class="center-align">
+		<%= link_to 'Salvar', train_path(@exercise.train, pupil: @exercise.train.pupil), class: 'btn waves-light waves-effect' %>
 	</section>
 <% end %>
