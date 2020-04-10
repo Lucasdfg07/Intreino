@@ -39,6 +39,6 @@ class ExercisesController < ApplicationController
 	end
 
 	def exercise_params
-		params.require(:exercise).permit(name: [], reps: [], series: [], video: [])
+		params.require(:exercise).permit(:observation, name: [], reps: [], series: [], video: [])
 	end
 end

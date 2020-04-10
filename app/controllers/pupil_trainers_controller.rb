@@ -23,7 +23,7 @@ class PupilTrainersController < ApplicationController
 	end
 
 	def destroy
-		if @pupil.destroy
+		if @pupil_trainer.destroy
 			redirect_to pupils_path, notice: 'Aluno removido com sucesso!'
 		else
 			redirect_to pupils_path, alert: 'Erro ao remover aluno! Tente novamente mais tarde.'
@@ -41,6 +41,6 @@ class PupilTrainersController < ApplicationController
 	end
 
 	def set_pupil_trainer_relation
-		@pupil_trainer = PupilTrainer.find_by(pupil: params[:pupil])
+		@pupil_trainer = PupilTrainer.find_by(pupil: params[:id])
 	end
 end

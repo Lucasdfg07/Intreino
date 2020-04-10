@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 20200407162510) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "train_id"
-    t.string   "name",       default: [],              array: true
-    t.integer  "reps",       default: [],              array: true
-    t.integer  "series",     default: [],              array: true
-    t.string   "video",      default: [],              array: true
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name",        default: [],              array: true
+    t.integer  "reps",        default: [],              array: true
+    t.integer  "series",      default: [],              array: true
+    t.string   "video",       default: [],              array: true
+    t.string   "observation"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["train_id"], name: "index_exercises_on_train_id", using: :btree
   end
 

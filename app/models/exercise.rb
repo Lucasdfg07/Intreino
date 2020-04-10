@@ -1,7 +1,7 @@
 class Exercise < ApplicationRecord
 	belongs_to :train
 
-	validates :name, :reps, :series, :video, presence: false
+	validates :name, :reps, :series, :video, :observation, presence: false
 
 	def add
 		name = self.name.push("")

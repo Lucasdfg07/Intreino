@@ -3,6 +3,23 @@
 //= require turbolinks
 //= require materialize-sprockets
 //
-// Select 2
+// Select2
 //= require select2
+//
+// MorrisJs
+//= require raphael
+//= require morris
+//
 //= require_tree .
+
+
+$( document ).on('turbolinks:load', function() {
+	// Navbar
+	$('.click_navbar .close').hide();
+	$('.nav_trainer').hide();
+	$('.click_navbar').click(function() {
+	  $('.nav_trainer').toggle(300);
+	  $('.click_navbar .close').toggle(200);
+	  $('.click_navbar .open').toggle(200);
+	});
+});

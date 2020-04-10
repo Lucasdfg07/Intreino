@@ -32,12 +32,17 @@
 
 							<br /><br />
 
-							<%= link_to 'Remover aluno', pupil_trainers_path(pupil: @pupil), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn waves-effect waves-light red' %>
+							<%= link_to 'Remover aluno', pupil_trainer_path(id: pupil), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn waves-effect waves-light red' %>
 						</section>
 					</section>
 
 					<hr />
 				<% end %>
+
+				<% if current_trainer.pupils.count == 0 %>
+					Não existem alunos cadastrados ainda!
+					<hr />
+				<% end %>	
 			</section>
 		</section>
 	</section>

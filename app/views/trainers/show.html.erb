@@ -9,11 +9,11 @@
 
 			<section class="row">
 				<%= link_to @trainer.facebook, class: 'col s6' do %>
-					<%= image_tag 'facebook', class: 'thumb' if @trainer.facebook.present? %>
+					<%= image_tag 'facebook', class: 'thumb' if @trainer.facebook.present? && @trainer.is_valid?(@trainer.facebook) %>
 				<% end %>
 
 				<%= link_to @trainer.instagram, class: 'col s6' do %>
-					<%= image_tag 'instagram-sketched', class: 'thumb' if @trainer.instagram.present? %>
+					<%= image_tag 'instagram-sketched', class: 'thumb' if @trainer.instagram.present? && @trainer.is_valid?(@trainer.instagram) %>
 				<% end %>
 			</section>
 
@@ -78,8 +78,14 @@
 				</section>
 
 				<br />
-
-				<%= link_to 'Avaliar Profissional', new_rating_path(trainer: @trainer), class: 'btn waves-effect waves-light' %>
+				<% if not @trainer.pupil_is_in_rating?(current_pupil) %>
+					<%= link_to 'Avaliar Profissional', new_rating_path(trainer: @trainer), class: 'btn waves-effect waves-light' %>
+				<% else %>
+					<%= link_to 'Avaliar Profissional', new_rating_path(trainer: @trainer), class: 'btn waves-effect waves-light', disabled: true %>
+					<p style="color:green">
+						Avaliação já realizada!
+					</p>
+				<% end %>
 			</section>
 		</section>
 	</section>

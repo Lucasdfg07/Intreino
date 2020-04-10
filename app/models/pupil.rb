@@ -12,6 +12,8 @@ class Pupil < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :photo, AvatarUploader
+
   def profile_image
   	if self.photo.present?
   		 self.photo

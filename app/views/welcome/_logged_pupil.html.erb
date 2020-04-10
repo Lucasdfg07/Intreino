@@ -7,6 +7,19 @@
 
 			<hr />
 
+			<%= image_tag current_pupil.photo.medium, class: 'circle' if current_pupil.photo.present? %>
+
+			<p>
+				Bem Vindo(a) <%= current_pupil.name %>, agora a barra de navegação está
+				disponível para uso!
+			</p>
+
+			<p>
+				Visualize seus <b>treinos</b> e os melhores personais de <b><%= current_pupil.city.name %></b>!
+			</p>
+			
+			<hr /> 
+
 			<% if not current_pupil.anamnesis.present? %>
 				<p>
 					Para começar, cadastre uma anamnese!
@@ -14,6 +27,8 @@
 
 				<%= link_to 'Cadastrar Anamnese', new_anamnese_path, class: 'btn waves-effect waves-light' %>
 			<% end %>
+
+			<br /><br />
 		</section>
 	</section>
 </section>

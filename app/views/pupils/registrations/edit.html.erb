@@ -35,17 +35,24 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", required: true %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
       <div class="field">
         <%= f.label :telefone %><br />
         <%= f.number_field :telephone, required: true %>
+        <small>Formato: DDD+Telefone. Exemplo: 22997989692</small> <br />
+        <small>Essa informação será utilizada para disponibilizar o link para o personal entrar em contato com o aluno pelo whatsapp</small>
+      </div>
+
+      <div class="field">
+        <%= f.label :foto_de_perfil %><br />
+        <%= f.file_field :photo %>
       </div>
 
       <div class="actions center-align">

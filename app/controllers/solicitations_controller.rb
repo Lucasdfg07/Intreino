@@ -13,9 +13,9 @@ class SolicitationsController < ApplicationController
 		@solicitation.trainer = @trainer
 
 		if @solicitation.save
-			redirect_to root_path, notice: 'Solicitação realizada com sucesso!'
+			redirect_to request.referrer, notice: 'Solicitação realizada com sucesso!'
 		else
-			redirect_to root_path, alert: 'Erro na solicitação! Tente novamente mais tarde.'
+			redirect_to request.referrer, alert: 'Erro na solicitação! Tente novamente mais tarde.'
 		end
 	end
 

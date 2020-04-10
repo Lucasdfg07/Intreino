@@ -15,9 +15,11 @@
 
 					<br /><br />
 					
-					<% (1..@train.trainer.get_rating_value).each do %>
-						<%= image_tag 'star' %>
-					<% end %>
+					<section class="trainer_div">
+						<section class="overflow-y">
+							<%= @train.exercises[0].observation %>
+						</section>
+					</section>
 				</section>
 			</section>
 

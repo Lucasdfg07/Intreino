@@ -1,12 +1,20 @@
-<section class="row center-align">
-	<section class="col s2 nav_trainer">
-		<%= image_tag 'logo2' %>
-		<ul>
-			<li><%= link_to 'Página Inicial', root_path %></li>
-			<li><%= link_to 'Editar Perfil', edit_pupil_registration_path %></li>
-			<li><%= link_to 'Personais', trainers_path %></li>
-			<li><%= link_to 'Meus Treinos', trains_path %></li>
-			<li><%= link_to 'Sair', destroy_pupil_session_path, method: :delete %></li>
-		</ul>
+<% if current_pupil.anamnesis.present? %>
+	<section class="click_navbar right">
+		<%= image_tag 'menu_nav', class: 'open' %>
+
+		<%= image_tag 'close', class: 'close' %>
 	</section>
-</section>
+	      
+	<section class="row center-align">
+		<section class="col l2 m4 s6 nav_trainer">
+			<%= image_tag 'logo2' %>
+			<ul>
+				<li><%= link_to 'Página Inicial', root_path %></li>
+				<li><%= link_to 'Editar Perfil', edit_pupil_registration_path %></li>
+				<li><%= link_to 'Personais', trainers_path %></li>
+				<li><%= link_to 'Meus Treinos', trains_path %></li>
+				<li><%= link_to 'Sair', destroy_pupil_session_path, method: :delete %></li>
+			</ul>
+		</section>
+	</section>
+<% end %>

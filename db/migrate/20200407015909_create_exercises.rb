@@ -6,6 +6,7 @@ class CreateExercises < ActiveRecord::Migration[5.0]
       t.integer :reps, array: true, default: []
       t.integer :series, array: true, default: []
       t.string :video, array: true, default: []
+      t.string :observation
       t.timestamps
     end
   end

@@ -8,7 +8,7 @@ class Train < ApplicationRecord
 
 
 	def get_photo
-		if self.modality == "funcional"
+		if self.modality == "Funcional"
 			"exercise"
 		else
 			"barbell"
