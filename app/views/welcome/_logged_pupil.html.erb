@@ -37,6 +37,12 @@
 							</section>
 						</section>	
 
+						<% if @weight_of_today.present? %>
+							<p>
+								Peso cadastrado hoje: <b style="color: green"><%= @weight_of_today %></b>	
+							</p>
+						<% end %>
+
 						<section class="actions">
 							<%= f.submit 'Salvar', class: 'btn waves-light waves-effect red' %>
 						</section>

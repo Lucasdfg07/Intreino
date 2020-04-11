@@ -53,9 +53,7 @@
 							<td><%= exercise.series[@count] %> séries</td>
 							<td>
 								<% if exercise.video[@count].present? %>
-									<%= link_to exercise.video[@count] do %>
-										<%= image_tag 'youtube', class: 'thumb' if exercise.video[@count].match(/http/) %>	
-									<% end %>
+									<%= youtube_video(exercise.video[@count]) if exercise.video[@count].match(/http/) %>
 								<% end %>
 							</td>
 						</tr>
