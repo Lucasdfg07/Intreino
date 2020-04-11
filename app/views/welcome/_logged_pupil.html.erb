@@ -27,7 +27,7 @@
 				<section class="row">
 					<%= form_for(@weight, url: {controller: :weights, action: :new}, html: {class: "col s4 push-s4"}) do |f| %>
 						<section class="input-field row">
-							Peso atual:
+							Peso de hoje (<%= Date.today %>):
 							<section class="col s10">
 								<%= f.number_field :value, placeholder: 'Digite o peso atual' %>
 							</section>
@@ -47,7 +47,7 @@
 
 				<!-- Graphic -->
 				<h5>Evolução corporal</h5>
-				<%= content_tag :div, "", id: "weight_progression_chart", data: {weights: weight_progression_data} %>
+				<%= content_tag :div, "", id: "weight_progression_chart", data: {weights: weight_progression_data(current_pupil)} %>
 
 				<br />
 

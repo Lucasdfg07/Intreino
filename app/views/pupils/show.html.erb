@@ -26,8 +26,25 @@
 			<%= link_to 'Ver Anamnese', anamnese_path(id: @pupil.anamnesis), class: 'btn waves-effect waves-light blue' %>
 
 			<%= link_to 'Histórico de treinos', trains_path(pupil: @pupil), class: 'btn waves-effect waves-light black' %>
+		</section>
 
-			<br /><br />
+		<section class="col s12">
+			<!-- Graphic -->
+			<h5>Evolução corporal</h5>
+			<%= content_tag :div, "", id: "weight_progression_chart", data: {weights: weight_progression_data(@pupil)} %>
+
+			<br />
+
+			<script>
+				new Morris.Bar({
+				    element: 'weight_progression_chart',
+				    data: $('#weight_progression_chart').data('weights'),
+				    xkey: 'created_at',
+				    ykeys: ['weight'],
+				    labels: ['Peso'],
+				    lineColors: ['#007bff']
+				  });
+			</script>
 
 			<section class="actions right">
 				<%= link_to 'Voltar', pupils_path, class: 'btn waves-light waves-effect' %>

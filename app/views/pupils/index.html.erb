@@ -42,7 +42,9 @@
 				<% if current_trainer.pupils.count == 0 %>
 					Não existem alunos cadastrados ainda!
 					<hr />
-				<% end %>	
+				<% end %>
+
+				<%= link_to 'Cadastrar novo aluno', new_pupil_trainer_path, class: 'btn waves-effect waves-light blue' %>	
 			</section>
 		</section>
 	</section>

@@ -7,40 +7,43 @@
 
 			<section class="card-content">
 				<hr>
+
+				<% if @trainers.count == 0 %>
 					<p>
-						Principais treinadores de <%= current_pupil.city.name %>
+						Nenhum personal encontrado :( <br />
+						Comunique seu personal para realizar o cadastro em sua listagem de alunos!
 					</p>
-				<hr>
+				<% else %>
+					<% @trainers.each do |trainer| %>
+						<section class="trainer_div">
+							<section class="row center-align">
+								<section class="col s3 perfil">
+									<%= image_tag trainer.profile_image %>
+								</section>
 
-				<% @trainers.each do |trainer| %>
-					<section class="trainer_div">
-						<section class="row center-align">
-							<section class="col s3 perfil">
-								<%= image_tag trainer.profile_image %>
-							</section>
+								<section class="col s6">
+									<h6><%= trainer.name %></h6>
+									
+									<p>
+										CREF: <%= trainer.cref %>
+									</p>
 
-							<section class="col s6">
-								<h6><%= trainer.name %></h6>
-								
-								<p>
-									CREF: <%= trainer.cref %>
-								</p>
-
-								<% if trainer.ratings.count > 0 %>
-									<% (1..trainer.get_rating_value).each do |rating| %>
-										<%= image_tag 'star' %>
+									<% if trainer.ratings.count > 0 %>
+										<% (1..trainer.get_rating_value).each do |rating| %>
+											<%= image_tag 'star' %>
+										<% end %>
+									<% else %>
+										<hr>
+										Não existem avaliações cadastradas ainda <br /> <%= image_tag 'sad' %>
 									<% end %>
-								<% else %>
-									<hr>
-									Não existem avaliações cadastradas ainda <br /> <%= image_tag 'sad' %>
-								<% end %>
-							</section>
+								</section>
 
-							<section class="col s3">
-								<%= link_to 'Ver', trainer_path(trainer), class: 'btn waves-effect waves-light blue show_trainer' %>
+								<section class="col s3">
+									<%= link_to 'Ver', trainer_path(trainer), class: 'btn waves-effect waves-light blue show_trainer' %>
+								</section>
 							</section>
 						</section>
-					</section>
+					<% end %>
 				<% end %>
 			</section>
 		</section>
