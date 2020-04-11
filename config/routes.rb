@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :trainers
 
-  resources :pupils
+  resources :pupils 
 
   resources :ratings
 
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :pupil_trainers
 
   resources :anamneses
+
+  resources :weights do
+    collection do
+      post 'new'
+    end
+  end
 
   resources :exercises, except: [:show] do
     collection do
@@ -27,5 +33,8 @@ Rails.application.routes.draw do
     end
   end
   
+  post 'welcome/index'
+  get 'welcome/index'
+
   root 'welcome#index'
 end

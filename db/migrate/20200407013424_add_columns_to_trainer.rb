@@ -7,5 +7,6 @@ class AddColumnsToTrainer < ActiveRecord::Migration[5.0]
   	add_column :trainers, :facebook, :string
   	add_column :trainers, :instagram, :string
   	add_column :trainers, :cref, :string
+  	add_column :trainers, :status, :string
   end
 end

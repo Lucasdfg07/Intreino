@@ -15,22 +15,22 @@
 	<section class="col s12">
 		<% @pupil.trains.order(created_at: :DESC).each do |train| %>
 			<section class="row m-top shadow">
-				<section class="col s3">
+				<section class="col m3 s12">
 					<%= image_tag train.get_photo, class: 'thumb' %>
 				</section>
 
-				<section class="col s6">
+				<section class="col m6 s12">
 					Agrupamentos: <b><%= train.grouping %> / <%= train.day_of_week %></b> <br />
 					Treinador: <%= train.trainer.name %><br />
 					<small>Data de lançamento: <%= train.created_at %></small>
 					<small>Validade até <b><%= train.validate_date %></b></small>
 				</section>
 
-				<section class="col s2">
+				<section class="col s12 m2">
 					<%= link_to 'Ver Mais', train_path(train, pupil: @pupil), class: 'btn waves-effect waves-light red' %>
 				</section>
 
-				<section class="col s1">
+				<section class="col s12 m1">
 					<% if trainer_signed_in? %>
 						<%= link_to train, method: :delete, data: { confirm: 'Tem certeza?' } do %>
 							<i class="material-icons">delete</i>

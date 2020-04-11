@@ -5,12 +5,12 @@
 
 	<section class="card-content">
 		<section class="row">
-			<section class="col l8 right center-align">
-				<section class="col l5">
+			<section class="col m8 s12 right center-align">
+				<section class="col l5 s12">
 					<%= image_tag @train.trainer.profile_image, class: 'big circle' %>
 				</section>
 
-				<section class="col l7 m-top">
+				<section class="col l7 s12 m-top">
 					Treinador: <%= @train.trainer.name %>
 
 					<br /><br />
@@ -23,7 +23,7 @@
 				</section>
 			</section>
 
-			<section class="col l4">
+			<section class="col m4 s12">
 				<h5>Dia do treino: <b><%= @train.day_of_week %></b></h5>
 
 				<h5>Agrupamentos: <b><%= @train.grouping %></b></h5>

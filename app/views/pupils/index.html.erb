@@ -9,11 +9,11 @@
 			<section class="card-content">
 				<% current_trainer.pupils.each do |pupil| %>
 					<section class="row">
-						<section class="col s3 m-top">
+						<section class="col m3 s12 m-top">
 							<%= image_tag pupil.profile_image, class: 'medium circle' %>
 						</section>
 
-						<section class="col s6">
+						<section class="col m6 s12">
 							<h5><%= pupil.name %></h5>
 							
 							<p>
@@ -25,7 +25,7 @@
 							<%= link_to 'Perfil', pupil_path(pupil), class: 'btn waves-effect waves-light black' %>
 						</section>
 
-						<section class="col s3 m-top">
+						<section class="col m3 s12 m-top">
 							<%= link_to "https://api.whatsapp.com/send?phone=55#{pupil.telephone}" do %>
 								<%= image_tag 'whatsapp', class: 'thumb' %>
 							<% end %>
