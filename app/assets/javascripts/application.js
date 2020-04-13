@@ -13,7 +13,7 @@
 //= require serviceworker-companion
 //= require_tree .
 
-$(function() {
+$( document ).on('turbolinks:load', function() {
 	// Navbar
 	$(".click_navbar .close").hide();
 	$(".nav_trainer").hide();
