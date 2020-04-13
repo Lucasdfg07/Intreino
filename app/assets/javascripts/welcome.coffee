@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+	$('.click_navbar .close').hide();
+	$('.nav_trainer').hide();
+	$('.click_navbar').on 'click', ->
+	  $('.nav_trainer').toggle(300);
+	  $('.click_navbar .close').toggle(200);
+	  $('.click_navbar .open').toggle(200);
