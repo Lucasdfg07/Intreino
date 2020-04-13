@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery3
 //= require materialize-sprockets
 //
 // Select2
@@ -14,7 +13,7 @@
 //= require serviceworker-companion
 //= require_tree .
 
-$( document ).on('turbolinks:load', function() {
+$(function() {
 	// Navbar
 	$(".click_navbar .close").hide();
 	$(".nav_trainer").hide();
