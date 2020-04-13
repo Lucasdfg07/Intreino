@@ -8,19 +8,6 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :Informe_sua_cidade %><br />
-        <%= f.collection_select :city_id, City.order(name: :ASC), :id, :name, {include_blank: 'Selecione sua Cidade'}, class: "browser-default", required: true %>
-      </div>
-
-      <script>
-        $( "#pupil_city_id" ).select2({
-            placeholder: 'Pesquise por uma cidade'
-        });
-      </script>
-
-      <br />
-
-      <div class="field">
         <%= f.label :nome %><br />
         <%= f.text_field :name, required: true %>
       </div>

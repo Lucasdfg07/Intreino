@@ -10,9 +10,9 @@ class PupilTrainersController < ApplicationController
 		@pupil_trainer.trainer = current_trainer
 
 		if @pupil_trainer.save
-			redirect_to root_path, notice: 'Aluno confirmado com sucesso!'
+			redirect_to pupils_path, notice: 'Aluno confirmado com sucesso!'
 		else
-			redirect_to root_path, alert: 'Erro na confirmação do aluno! Tente novamente mais tarde.'
+			redirect_to pupils_path, alert: 'Erro na confirmação do aluno! Tente novamente mais tarde.'
 		end
 	end
 

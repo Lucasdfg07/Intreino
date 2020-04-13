@@ -2,6 +2,8 @@
 	<%= render 'logged_trainer' %>
 <% elsif pupil_signed_in? %>
 	<%= render 'logged_pupil' %>
+<% elsif admin_signed_in? %>
+	<%= render 'logged_admin' %>
 <% else %>
 	<%= render 'unlogged' %>
 <% end %>

@@ -22,6 +22,12 @@
 
 					<%= link_to 'Efetuar Pagamento', 'https://pag.ae/7VWqD2Ezt', class: 'btn waves-effect waves-light green' %>
 				<% else %>
+					<% if current_trainer.payment_validate.present? %>
+						Sua mensalidade expira em: <b><%= current_trainer.payment_validate %></b>
+					<% end %>
+
+					<hr />
+
 					<p>
 						Bem vindo ao sistema <b>Intreino</b>.
 					</p>

@@ -30,6 +30,9 @@ gem 'groupdate'
 # Multiple select
 gem "select2-rails"
 
+# Dotenv
+gem 'dotenv-rails'
+
 # Search
 gem 'ransack'
 

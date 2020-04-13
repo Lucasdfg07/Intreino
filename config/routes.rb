@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   devise_for :trainers, controllers: { sessions: "trainers/sessions", registrations: "trainers/registrations" }
   devise_for :pupils, controllers: { sessions: "pupils/sessions", registrations: "pupils/registrations" }
-  
+  devise_for :admins
+
   resources :trains
 
   resources :trainers
@@ -16,6 +18,13 @@ Rails.application.routes.draw do
   resources :pupil_trainers
 
   resources :anamneses
+
+  resources :admins do
+    collection do
+      get 'edit_trainer'
+      post 'update'
+    end
+  end
 
   resources :weights do
     collection do

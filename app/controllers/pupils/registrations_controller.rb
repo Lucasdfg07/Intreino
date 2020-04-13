@@ -10,10 +10,10 @@ class Pupils::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:pupil).permit(:city_id, :name, :age, :photo, :telephone, :email, :password, :password_confirmation)
+    params.require(:pupil).permit(:name, :age, :photo, :telephone, :email, :password, :password_confirmation)
   end
 
   def account_update_params
-    params.require(:pupil).permit(:city_id, :name, :age, :photo, :telephone, :email, :password, :password_confirmation)
+    params.require(:pupil).permit(:name, :age, :photo, :telephone, :email, :password, :password_confirmation)
   end
 end

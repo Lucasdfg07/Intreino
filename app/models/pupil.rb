@@ -3,8 +3,7 @@ class Pupil < ApplicationRecord
   has_many :trainers, through: :pupil_trainers
   has_many :trains, dependent: :destroy
   has_one :anamnesis, dependent: :destroy
-
-  belongs_to :city
+  has_one :weight
 
   validates_uniqueness_of :email
   
