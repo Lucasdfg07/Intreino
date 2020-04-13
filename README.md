@@ -145,6 +145,7 @@ Here are the technologies used in this project.
 
 
 ## Links
+  - App: https://intreino.herokuapp.com/
   - Repository: https://github.com/Lucasdfg07/Intreino
     - In case of sensitive bugs like security vulnerabilities, please contact
       Lucassiqueiraferandes07@gmail.com directly instead of using issue tracker. We value your effort
