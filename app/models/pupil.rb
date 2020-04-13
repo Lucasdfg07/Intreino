@@ -3,6 +3,7 @@ class Pupil < ApplicationRecord
   has_many :trainers, through: :pupil_trainers
   has_many :trains, dependent: :destroy
   has_one :anamnesis, dependent: :destroy
+  has_one :weight
 
   belongs_to :city
 

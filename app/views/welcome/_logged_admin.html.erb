@@ -1,0 +1,44 @@
+<section class="card">
+	<br />
+	
+	<%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: ' btn waves-effect waves-light right red' %>
+
+	<section class="container center-align">
+		<section class="card-title">
+			<h3>Painel Administrativo</h3>
+		</section>
+
+		<section class="card-content">
+			<hr />
+
+			<h5>Painel de Treinadores</h5>
+
+			<hr />
+		</section>
+	</section>
+
+	<table class="responsive-table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Status</th>
+				<th>Última renovação</th>
+				<th>Vencimento</th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% Trainer.all.each do |trainer| %>
+				<tr>
+					<td><%= trainer.name %></td>
+					<td><%= trainer.status %></td>
+					<td><%= trainer.updated_at %></td>
+					<td><%= trainer.payment_validate %></td>
+					<td><%= link_to 'Exibir', trainer_path(trainer), class: 'btn waves-effect waves-light black' %></td>
+					<td><%= link_to 'Editar', edit_trainer_admins_path(trainer_id: trainer), class: 'btn waves-effect waves-light blue' %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>
