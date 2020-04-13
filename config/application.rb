@@ -13,7 +13,6 @@ module Intreino
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.i18n.default_locale = "pt-BR"
-    config.serve_static_assets = true
     
     Time::DATE_FORMATS[:default] = "%d/%m/%Y"
     Date::DATE_FORMATS[:default] = "%d/%m/%Y"
