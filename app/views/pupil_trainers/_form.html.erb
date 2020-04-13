@@ -1,0 +1,21 @@
+<%= form_for(pupil_trainer) do |f| %>
+	<section class="field">
+		<%= f.collection_select(:pupil_id, Pupil.order(name: :ASC).select {|pupil| pupil.trainers.blank?}, :id, :name, {include_blank: 'Selecione um aluno'}, class: "browser-default", required: true) %>
+	</section>
+
+	<script>
+        $( "#pupil_trainer_pupil_id" ).select2({
+            placeholder: 'Pesquise por seu aluno!'
+        });
+  	</script>
+
+  	<section class="actions m-top center-align">
+  		<%= f.submit 'Salvar', class: 'btn waves-effect waves-light blue' %>
+
+      <br /> <br />
+
+      <%= link_to 'Voltar', pupils_path, class: 'btn waves-effect waves-light' %>
+  	</section>
+
+    <br />
+<% end %>

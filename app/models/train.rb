@@ -5,14 +5,10 @@ class Train < ApplicationRecord
 	has_many :exercises, dependent: :destroy
 
 	validates_presence_of :day_of_week, :modality, :grouping
-	
-	enum modality: [:Musculação, :Funcional]
-
-	enum day_of_week: [:Segunda, :Terça, :Quarta, :Quinta, :Sexta, :Sábado, :Domingo]
 
 
 	def get_photo
-		if self.modality == "funcional"
+		if self.modality == "Funcional"
 			"exercise"
 		else
 			"barbell"

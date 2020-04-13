@@ -5,13 +5,13 @@
     </section>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="input-field">
+      <div class="input-field unlogged_field">
         <i class="material-icons prefix">account_circle</i>
         <%= f.email_field :email, autocomplete: "email", id: 'icon_prefix', class: 'validate' %>
         <label for="icon_prefix">Digite seu Email</label>
       </div>
 
-      <div class="input-field">
+      <div class="input-field unlogged_field">
         <i class="material-icons prefix">security</i>
         <%= f.password_field :password, autocomplete: "current-password", id: 'security', class: 'validate' %>
         <label for="security">Digite sua Senha</label>

@@ -50,7 +50,9 @@
 
       <div class="field">
         <%= f.label :telefone %><br />
-        <%= f.number_field :telephone %>
+        <%= f.number_field :telephone, required: true %>
+        <small>Formato: DDD+Telefone. Exemplo: 22997989692</small> <br />
+        <small>Essa informação será utilizada para disponibilizar o link para o personal entrar em contato com o aluno pelo whatsapp</small>
       </div>
 
       <div class="field">
@@ -61,6 +63,11 @@
       <div class="field">
         <%= f.label :link_do_instagram %><br />
         <%= f.text_field :instagram %>
+      </div>
+
+      <div class="field">
+        <%= f.label :foto_de_perfil %><br />
+        <%= f.file_field :photo %>
       </div>
 
       <div class="actions center-align">

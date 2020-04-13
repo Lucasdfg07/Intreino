@@ -7,13 +7,76 @@
 
 			<hr />
 
-			<% if not current_pupil.anamnesis.present? %>
+			<%= image_tag current_pupil.photo.medium, class: 'circle' if current_pupil.photo.present? %>
+
+			<% if current_pupil.anamnesis.present? %>
+
+				<p>
+					Bem Vindo(a) <%= current_pupil.name %>, agora a barra de navegação está
+					disponível para uso!
+				</p>
+
+				<p>
+					Visualize seus <b>treinos</b> e os melhores personais de <b><%= current_pupil.city.name %></b>!
+				</p>
+			
+				<hr />
+
+				<h6>Realize o acompanhamento do seu peso corporal!</h6>
+
+				<section class="row">
+					<%= form_for(@weight, url: {controller: :weights, action: :new}, html: {class: "col s4 push-s4"}) do |f| %>
+						<section class="input-field row">
+							Peso de hoje (<%= Date.today %>):
+							<section class="col s10">
+								<%= f.number_field :value, placeholder: 'Digite o peso atual' %>
+							</section>
+							
+							<section class="col s2 m-top">
+								Kg
+							</section>
+						</section>	
+
+						<% if @weight_of_today.present? %>
+							<p>
+								Peso cadastrado hoje: <b style="color: green"><%= @weight_of_today %></b>	
+							</p>
+						<% end %>
+
+						<section class="actions">
+							<%= f.submit 'Salvar', class: 'btn waves-light waves-effect red' %>
+						</section>
+					<% end %>
+				</section>
+
+				<hr />
+
+				<!-- Graphic -->
+				<h5>Evolução corporal</h5>
+				<%= content_tag :div, "", id: "weight_progression_chart", data: {weights: weight_progression_data(current_pupil)} %>
+
+				<br />
+
+				<script>
+					new Morris.Bar({
+					    element: 'weight_progression_chart',
+					    data: $('#weight_progression_chart').data('weights'),
+					    xkey: 'created_at',
+					    ykeys: ['weight'],
+					    labels: ['Peso'],
+					    lineColors: ['#007bff']
+					  });
+				</script>
+
+			<% else %>
 				<p>
 					Para começar, cadastre uma anamnese!
 				</p>
 
-				<%= link_to 'Cadastrar Anamnese', new_anamneses_path, class: 'btn waves-effect waves-light' %>
+				<%= link_to 'Cadastrar Anamnese', new_anamnese_path, class: 'btn waves-effect waves-light' %>
 			<% end %>
+
+			<br /><br />
 		</section>
 	</section>
 </section>

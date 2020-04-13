@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200407162510) do
+ActiveRecord::Schema.define(version: 20200411152548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 20200407162510) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "train_id"
-    t.string   "name",       null: false
-    t.integer  "reps",       null: false
-    t.integer  "series",     null: false
-    t.string   "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        default: [],              array: true
+    t.integer  "reps",        default: [],              array: true
+    t.integer  "series",      default: [],              array: true
+    t.string   "video",       default: [],              array: true
+    t.string   "observation"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["train_id"], name: "index_exercises_on_train_id", using: :btree
   end
 
@@ -85,24 +86,14 @@ ActiveRecord::Schema.define(version: 20200407162510) do
     t.index ["trainer_id"], name: "index_ratings_on_trainer_id", using: :btree
   end
 
-  create_table "solicitations", force: :cascade do |t|
-    t.integer  "pupil_id"
-    t.integer  "trainer_id"
-    t.boolean  "approved",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["pupil_id"], name: "index_solicitations_on_pupil_id", using: :btree
-    t.index ["trainer_id"], name: "index_solicitations_on_trainer_id", using: :btree
-  end
-
   create_table "trainers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",        null: false
+    t.string   "encrypted_password",     default: "",        null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "city_id"
     t.string   "name"
     t.string   "photo"
@@ -110,6 +101,8 @@ ActiveRecord::Schema.define(version: 20200407162510) do
     t.string   "facebook"
     t.string   "instagram"
     t.string   "cref"
+    t.string   "status",                 default: "pendent"
+    t.date     "payment_validate"
     t.index ["city_id"], name: "index_trainers_on_city_id", using: :btree
     t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
@@ -126,6 +119,14 @@ ActiveRecord::Schema.define(version: 20200407162510) do
     t.datetime "updated_at",    null: false
     t.index ["pupil_id"], name: "index_trains_on_pupil_id", using: :btree
     t.index ["trainer_id"], name: "index_trains_on_trainer_id", using: :btree
+  end
+
+  create_table "weights", force: :cascade do |t|
+    t.integer  "pupil_id"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pupil_id"], name: "index_weights_on_pupil_id", using: :btree
   end
 
 end

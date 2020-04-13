@@ -14,6 +14,6 @@ class Trainers::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:trainer).permit(:city_id, :name, :photo, :telephone, :facebook, :instagram, :cref, :email, :password, :password_confirmation)
+    params.require(:trainer).permit(:city_id, :name, :photo, :telephone, :status, :payment_validate, :facebook, :instagram, :cref, :email, :password, :password_confirmation)
   end
 end

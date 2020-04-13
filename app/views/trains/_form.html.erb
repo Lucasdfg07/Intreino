@@ -4,7 +4,7 @@
 
 	<section class="field">
 		Tipo de treinamento:
-		<%= f.select :modality, Train.modalities.map {|key, value| [key.humanize, key]}, {}, class: "browser-default" %>
+		<%= f.select :modality, [:Musculação, :Funcional], {}, class: "browser-default" %>
 	</section>
 
 	<br />
@@ -13,7 +13,7 @@
 		<section class="field col l6">
 			Dia da Semana:
 			<section class="input-field inline">
-				<%= f.select :day_of_week, Train.day_of_weeks.map {|key, value| [key.humanize, key]}, {}, class: "browser-default" %>
+				<%= f.select :day_of_week, [:Segunda, :Terça, :Quarta, :Quinta, :Sexta, :Sábado, :Domingo], {}, class: "browser-default" %>
 			</section>
 		</section>
 
@@ -45,6 +45,7 @@
 					selectMonths: true,
 					selectYears: 15,
 				},
+					format:'yyyy-mm-dd',
 					container: 'body',
 					minDate: new Date(),
 			});
@@ -56,11 +57,15 @@
 
 		<i class="material-icons">date_range</i>
 		<section class="input-field inline">
-			<%= f.text_field :validate_date, class: 'datepicker', readonly: true, required: true %>
+			<%= f.date_field :validate_date, class: 'datepicker', readonly: true, required: true %>
 		</section>
 	</section>
 
 	 <section class="actions center-align">
-	 	<%= f.submit 'Salvar', class: 'btn waves-effect waves-light' %>
+	 	<%= f.submit 'Salvar', class: 'btn waves-effect waves-light blue' %>
+
+	 	<br /><br />
+	 	
+	 	<%= link_to 'Voltar', pupils_path, class: 'btn waves-effect waves-light' %>
 	 </section>
 <% end %>

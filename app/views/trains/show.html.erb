@@ -1,3 +1,75 @@
-<section class="row center-align card">
-	teste
+<section class="row card">
+	<section class="card-title center-align">
+		<h3><%= @train.modality %></h3>
+	</section>
+
+	<section class="card-content">
+		<section class="row">
+			<section class="col m8 s12 right center-align">
+				<section class="col l5 s12">
+					<%= image_tag @train.trainer.profile_image, class: 'big circle' %>
+				</section>
+
+				<section class="col l7 s12 m-top">
+					Treinador: <%= @train.trainer.name %>
+
+					<br /><br />
+					
+					<section class="trainer_div">
+						<section class="overflow-y">
+							<%= @train.exercises[0].observation %>
+						</section>
+					</section>
+				</section>
+			</section>
+
+			<section class="col m4 s12">
+				<h5>Dia do treino: <b><%= @train.day_of_week %></b></h5>
+
+				<h5>Agrupamentos: <b><%= @train.grouping %></b></h5>
+
+				<p>
+					Válido até: <%= @train.validate_date %>
+				</p>
+			</section>	
+		</section>
+
+		<table class="responsive-table">
+			<thead>
+				<tr>
+					<th>Exercício</th>
+					<th>Nº de Repetições</th>
+					<th>Nº de Séries</th>
+					<th>Vídeo Explicativo</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @train.exercises.each do |exercise| %>
+					<% (1..exercise.name.count).each do |e| %>
+						<tr>
+							<td><%= exercise.name[@count] %></td>
+							<td><%= exercise.reps[@count] %> repetições</td>
+							<td><%= exercise.series[@count] %> séries</td>
+							<td>
+								<% if exercise.video[@count].present? %>
+									<%= youtube_video(exercise.video[@count]) if exercise.video[@count].match(/http/) %>
+								<% end %>
+							</td>
+						</tr>
+
+						<%= content_tag :div, '', class: 'hidden', data: { source: @count += 1 } %>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<br />
+
+		<section class="actions">
+			<%= link_to 'Voltar', (pupil_signed_in?) ? trains_path : trains_path(pupil: params[:pupil]), class: 'btn waves-effect waves-light' %>
+
+			<%= link_to 'Editar', edit_exercises_path(train: @train, id: @train.exercises[0]), class: 'btn waves-effect waves-light right green' if trainer_signed_in? %>
+		</section>
+	</section>
 </section>
