@@ -48,7 +48,7 @@ class Trainer < ApplicationRecord
   def get_position
     count = 1
 
-    Trainer.where(city: self.city).each do |trainer|
+    Trainer.each do |trainer|
       if trainer.get_rating_value > self.get_rating_value
         count += 1
       end
