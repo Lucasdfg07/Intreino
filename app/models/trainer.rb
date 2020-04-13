@@ -4,8 +4,6 @@ class Trainer < ApplicationRecord
   has_many :trains, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
-  belongs_to :city
-
   validates_uniqueness_of :email, :cref
 
   devise :database_authenticatable, :registerable,

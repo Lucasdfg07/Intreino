@@ -5,8 +5,6 @@ class Pupil < ApplicationRecord
   has_one :anamnesis, dependent: :destroy
   has_one :weight
 
-  belongs_to :city
-
   validates_uniqueness_of :email
   
   devise :database_authenticatable, :registerable,

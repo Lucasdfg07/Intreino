@@ -1,6 +1,5 @@
 class AddColumnsToTrainer < ActiveRecord::Migration[5.0]
   def change
-  	add_reference :trainers, :city, index: true
   	add_column :trainers, :name, :string
   	add_column :trainers, :photo, :string
   	add_column :trainers, :telephone, :string
