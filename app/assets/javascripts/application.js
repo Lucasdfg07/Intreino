@@ -10,7 +10,7 @@
 //= require raphael
 //= require morris
 //
-//= require_tree .
+//= require serviceworker-companion
 
 
 $( document ).on('turbolinks:load', function() {
@@ -22,4 +22,4 @@ $( document ).on('turbolinks:load', function() {
 	  $('.click_navbar .close').toggle(200);
 	  $('.click_navbar .open').toggle(200);
 	});
-});//= require serviceworker-companion
+});
