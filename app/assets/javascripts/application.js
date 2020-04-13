@@ -11,6 +11,7 @@
 //= require morris
 //
 //= require serviceworker-companion
+//= require_tree .
 
 
 $( document ).on('turbolinks:load', function() {
