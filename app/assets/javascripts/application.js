@@ -14,7 +14,7 @@
 //= require_tree .
 
 
-$( document ).on('turbolinks:load', function() {
+$( document ).ready(function() {
 	// Navbar
 	$('.click_navbar .close').hide();
 	$('.nav_trainer').hide();
