@@ -7,23 +7,38 @@
 
 			<section class="card-content">
 				<hr>
+				<% if current_trainer.is_status_pendent? %>
+					<% if current_trainer.payment_validate.present? %>
+						Validade expirada na data <b><%= current_trainer.payment_validate %></b>
+					<% end %>
 
-				<p>
-					Bem vindo ao sistema <b>Intreino</b>.
-				</p>
+					<p>
+						Efetue o pagamento da mensalidade para prosseguir.<br />
+						Assim que a mensalidade for processada, sua conta será
+						para prescrição de treinos aos seus alunos!
+					</p>
+					
+					<br />
 
-				<p>
-					Acesse a <b>barra de navegação</b>, clicando em <%= image_tag 'menu_nav' %> e clique em <b>Meus Alunos</b> 
-					para começar a prescrever os treinos dos seus alunos!
-				</p>
+					<%= link_to 'Efetuar Pagamento', 'https://pag.ae/7VWqD2Ezt', class: 'btn waves-effect waves-light green' %>
+				<% else %>
+					<p>
+						Bem vindo ao sistema <b>Intreino</b>.
+					</p>
 
-				<br /><br />
+					<p>
+						Acesse a <b>barra de navegação</b>, clicando em <%= image_tag 'menu_nav' %> e clique em <b>Meus Alunos</b> 
+						para começar a prescrever os treinos dos seus alunos!
+					</p>
 
-				<p>
-					Não se esqueça de perguntar <b>feedbacks</b> de todos os treinos para seus alunos! <br /> 
-					Além de treinos diferenciados, um atendimento de ponta é a chave pra 
-					fidelização de seus clientes!
-				</p>
+					<br /><br />
+
+					<p>
+						Não se esqueça de perguntar <b>feedbacks</b> de todos os treinos para seus alunos! <br /> 
+						Além de treinos diferenciados, um atendimento de ponta é a chave pra 
+						fidelização de seus clientes!
+					</p>
+				<% end %>
 			</section>
 		</section>
 	</section>

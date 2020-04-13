@@ -3,7 +3,6 @@ class Trainer < ApplicationRecord
   has_many :pupils, through: :pupil_trainers
   has_many :trains, dependent: :destroy
   has_many :ratings, dependent: :destroy
-  has_many :solicitations, dependent: :destroy
 
   belongs_to :city
 
@@ -66,6 +65,10 @@ class Trainer < ApplicationRecord
     end
     
     return false
+  end
+
+  def is_status_pendent?
+    return true if self.status == 'pendent'
   end
 
 end
