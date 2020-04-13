@@ -23,6 +23,8 @@ class TrainsController < ApplicationController
 
 		if @train.save
 			redirect_to new_exercise_path(train: @train), notice: 'Treino criado com sucesso!'
+
+			NotificationMailer.notification_message(@train.trainer, @pupil).deliver_later
 		else
 			redirect_to pupils_path, alert: 'Erro na criação do treino! Tente novamente mais tarde.'
 		end

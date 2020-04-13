@@ -99,7 +99,11 @@
 		</section>
 
 		<section class="col s4">
-			<%= link_to 'Voltar', trainers_path, class: 'btn waves-effect waves-light green' %>
+			<% if admin_signed_in? %>
+				<%= link_to 'Voltar', root_path, class: 'btn waves-effect waves-light green' %>
+			<% else %>
+				<%= link_to 'Voltar', trainers_path, class: 'btn waves-effect waves-light green' %>
+			<% end %>
 		</section>
 	</section>
 </section>
