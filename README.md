@@ -105,6 +105,14 @@ Here are the technologies used in this project.
 
 ![Show Training](https://github.com/Lucasdfg07/Intreino/blob/master/public/19.png)
 
+### You can see their perfil.
+
+![Show Pupil's Perfil](https://github.com/Lucasdfg07/Intreino/blob/master/public/20.png)
+
+### And their training historical
+
+![Show training historical](https://github.com/Lucasdfg07/Intreino/blob/master/public/21.png)
+
 ### Write a new training to them :)
 
 ![New Training Image](https://github.com/Lucasdfg07/Intreino/blob/master/public/13.png)
@@ -116,6 +124,10 @@ Here are the technologies used in this project.
 
 ![Show Training](https://github.com/Lucasdfg07/Intreino/blob/master/public/16.png)
 ![Show Training](https://github.com/Lucasdfg07/Intreino/blob/master/public/17.png)
+
+### And ask the pupil to check the email!
+
+![Show training email notification](https://github.com/Lucasdfg07/Intreino/blob/master/public/22.png)
 
 
 ### Or check the perfil of your pupil and see the anamnesis
